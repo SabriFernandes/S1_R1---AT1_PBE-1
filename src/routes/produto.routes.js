@@ -1,11 +1,11 @@
-import imagemController from "../controllers/imagem.controller.js";
-import uploadImage from "../middlewares/uploadImage.middlewares.js";
-import uploadFile from "../middlewares/uploadDocuments.middleware.js";
 import { Router } from "express";
+import categoriaController from "../controllers/produto.controller.js";
 
-const imagemRoutes = Router();
+const produtoRoutes = Router();
 
-imagemRoutes.post('/produtos/imagens', uploadImage, imagemController.upload);
-imagemRoutes.post('/produtos/docs', uploadFile, imagemController.upload);
+categoriaRoutes.post('/produtos', produtoController.criarProduto);
+categoriaRoutes.get('/produtos', produtoController.listarProduto);
+categoriaRoutes.put('/produtos/:idProduto', produtoController.atualizarProduto);
+categoriaRoutes.delete('/produtos:idProduto', produtoController.deletarProduto); 
 
-export default imagemRoutes
+export default produtoRoutes;
